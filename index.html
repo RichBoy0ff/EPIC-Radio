@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3PIC Radio — Live 24/7</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0c0c0c;
+      color: #fff;
+    }
+    header {
+      background: linear-gradient(135deg, #ff0066, #6600ff);
+      padding: 60px 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 3.2rem;
+      font-weight: 800;
+    }
+    p.slogan {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin-top: 10px;
+    }
+    nav {
+      background: #111;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #222;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #ff66aa;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .player-box {
+      background: #141414;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.08);
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #ff3377;
+    }
+
+    /* Player Buttons */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    button.customBtn {
+      background: #ff3377;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button.customBtn:hover {
+      background: #ff5599;
+    }
+    button.pause {
+      background: #333;
+    }
+    button.pause:hover {
+      background: #444;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #000;
+      margin-top: 60px;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EPIC RADIO</h1>
+    <p class="slogan">La radio 100% vibes — Live 24/7</p>
+  </header>
+
+  <nav>
+    <a href="#live">Écouter</a>
+    <a href="#about">À propos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- PLAYER SECTION -->
+    <div class="player-box" id="live">
+      <h2>Écouter en direct</h2>
+
+      <div class="buttons">
+        <button class="customBtn" id="playBtn">▶ Écouter</button>
+        <button class="customBtn pause" id="pauseBtn">⏸ Pause</button>
+      </div>
+
+      <div id="status" style="font-size:1rem;opacity:0.9;">Status : <span id="statustxt">En attente</span></div>
+
+      <audio id="radioPlayer" preload="none" crossorigin="anonymous" style="display:none;">
+        <source src="https://play.radioking.io/3pic-radio" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="section" id="about">
+      <h2>À propos</h2>
+      <p>
+        Bienvenue sur <strong>3PIC Radio</strong>, une radio digitale moderne diffusant le meilleur son 24h/24.
+        Notre objectif : offrir une ambiance unique, des vibes puissantes et une sélection musicale variée.
+      </p>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="section" id="contact">
+      <h2>Contact & Réseaux</h2>
+      <p>Pour toute demande ou collaboration :</p>
+      <ul>
+        <li>Lien Radio : <a href="#" style="color:#ff5599;">https://link.radioking.com/3pic-radio</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 EPIC Radio — Tous droits réservés
+  </footer>
+
+  <script>
+    const audio = document.getElementById('radioPlayer');
+    const playBtn = document.getElementById('playBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const statusTxt = document.getElementById('statustxt');
+
+    function setStatus(text){ statusTxt.textContent = text; }
+
+    playBtn.addEventListener('click', async () => {
+      try {
+        setStatus('Chargement...');
+        await audio.play();
+        setStatus('En direct');
+      } catch(e){
+        setStatus('Erreur de lecture');
+      }
+    });
+
+    pauseBtn.addEventListener('click', () => {
+      audio.pause();
+      setStatus('En pause');
+    });
+  </script>
+
+</
