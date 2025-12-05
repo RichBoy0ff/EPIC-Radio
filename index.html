@@ -4,112 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3PIC Radio — Live 24/7</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0c0c0c;
-      color: #fff;
-    }
-    header {
-      background: linear-gradient(135deg, #ff0066, #6600ff);
-      padding: 60px 20px;
-      text-align: center;
-    }
-    h1 {
-      margin: 0;
-      font-size: 3.2rem;
-      font-weight: 800;
-    }
-    p.slogan {
-      font-size: 1.3rem;
-      opacity: 0.9;
-      margin-top: 10px;
-    }
-    nav {
-      background: #111;
-      padding: 15px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid #222;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    nav a:hover {
-      color: #ff66aa;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .player-box {
-      background: #141414;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(255,255,255,0.08);
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      color: #ff3377;
-    }
-
-    /* Player Buttons */
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-    button.customBtn {
-      background: #ff3377;
-      border: none;
-      padding: 14px 24px;
-      border-radius: 12px;
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    button.customBtn:hover {
-      background: #ff5599;
-    }
-    button.pause {
-      background: #333;
-    }
-    button.pause:hover {
-      background: #444;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #000;
-      margin-top: 60px;
-      color: #bbb;
-    }
+    * {box-sizing: border-box; margin:0; padding:0;}
+    body {font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: #fff; overflow-x: hidden;}
+    header {padding: 80px 20px; text-align: center; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); border-bottom: 2px solid #ff3388;}
+    h1 {font-size: 3.5rem; font-weight: 900; letter-spacing: 2px; background: linear-gradient(90deg,#ff33aa,#ffdd33); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+    p.slogan {font-size: 1.3rem; opacity: 0.85; margin-top: 15px; font-weight: 500;}
+    nav {display: flex; justify-content: center; gap: 40px; padding: 20px; background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #ff33aa;}
+    nav a {color: #fff; text-decoration: none; font-weight: 700; transition: 0.3s;}
+    nav a:hover {color: #ff33aa; transform: scale(1.1);}
+    .container {max-width: 1200px; margin: 50px auto; padding: 0 20px;}
+    .player-box {background: rgba(255,255,255,0.05); padding: 50px; border-radius: 25px; box-shadow: 0 8px 40px rgba(0,0,0,0.6); text-align: center; margin-bottom: 80px; border: 2px solid #ff33aa; position: relative; overflow: hidden;}
+    .player-box::before {content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,51,170,0.2), transparent 70%); animation: rotate 20s linear infinite; z-index: 0;}
+    @keyframes rotate {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
+    .player-box h2, .buttons, #status {position: relative; z-index: 1;}
+    .buttons {display: flex; justify-content: center; gap: 20px; margin: 20px 0;}
+    button.customBtn {background: linear-gradient(90deg, #ff33aa, #ffdd33); border: none; padding: 16px 28px; border-radius: 15px; color: #fff; font-size: 1.2rem; font-weight: 700; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.4);}
+    button.customBtn:hover {transform: scale(1.1);}
+    button.pause {background: linear-gradient(90deg,#444,#222);}
+    .section {margin-bottom: 80px; background: rgba(0,0,0,0.4); padding: 40px; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.5); border: 2px solid #ff33aa;}
+    h2 {font-size: 2.4rem; margin-bottom: 20px; color: #ff33aa; text-align: center;}
+    footer {text-align: center; padding: 30px; background: #000; color: #bbb; border-top: 2px solid #ff33aa;}
+    a {color:#ff33aa;} a:hover {text-decoration: underline;}
   </style>
 </head>
 <body>
 
   <header>
     <h1>EPIC RADIO</h1>
-    <p class="slogan">La radio 100% vibes — Live 24/7</p>
+    <p class="slogan">La radio digitale 24/7 — Vibes et hits nonstop</p>
   </header>
 
   <nav>
@@ -120,37 +44,27 @@
 
   <div class="container">
 
-    <!-- PLAYER SECTION -->
     <div class="player-box" id="live">
       <h2>Écouter en direct</h2>
-
       <div class="buttons">
         <button class="customBtn" id="playBtn">▶ Écouter</button>
         <button class="customBtn pause" id="pauseBtn">⏸ Pause</button>
       </div>
-
       <div id="status" style="font-size:1rem;opacity:0.9;">Status : <span id="statustxt">En attente</span></div>
-
       <audio id="radioPlayer" preload="none" crossorigin="anonymous" style="display:none;">
         <source src="https://play.radioking.io/3pic-radio" type="audio/mpeg">
       </audio>
     </div>
 
-    <!-- ABOUT -->
     <div class="section" id="about">
       <h2>À propos</h2>
-      <p>
-        Bienvenue sur <strong>3PIC Radio</strong>, une radio digitale moderne diffusant le meilleur son 24h/24.
-        Notre objectif : offrir une ambiance unique, des vibes puissantes et une sélection musicale variée.
-      </p>
+      <p>Bienvenue sur <strong>EPIC Radio</strong>, la radio digitale qui diffuse le meilleur son 24h/24. Profitez d’une ambiance unique, de hits sélectionnés et de vibes exclusives pour vous accompagner partout.</p>
     </div>
 
-    <!-- CONTACT -->
     <div class="section" id="contact">
       <h2>Contact & Réseaux</h2>
-      <p>Pour toute demande ou collaboration :</p>
+      <p>Pour toutes demandes ou collaborations :</p>
       <ul>
-        <li>Lien Radio : <a href="#" style="color:#ff5599;">https://link.radioking.com/3pic-radio</a></li>
       </ul>
     </div>
 
@@ -166,22 +80,32 @@
     const pauseBtn = document.getElementById('pauseBtn');
     const statusTxt = document.getElementById('statustxt');
 
+    let userPaused = false;
+
     function setStatus(text){ statusTxt.textContent = text; }
 
     playBtn.addEventListener('click', async () => {
       try {
+        userPaused = false;
         setStatus('Chargement...');
         await audio.play();
         setStatus('En direct');
-      } catch(e){
-        setStatus('Erreur de lecture');
-      }
+      } catch(e){ setStatus('Erreur de lecture'); }
     });
 
     pauseBtn.addEventListener('click', () => {
+      userPaused = true;
       audio.pause();
       setStatus('En pause');
     });
+
+    // AUTO-RECONNEXION sauf si l'utilisateur a mis pause
+    setInterval(() => {
+      if(!userPaused && audio.paused && navigator.onLine){
+        audio.play().then(()=>setStatus('Reconnecté')).catch(()=>{});
+      }
+    }, 5000);
   </script>
 
-</
+</body>
+</html>
